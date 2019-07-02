@@ -1,2 +1,2 @@
 # QualiChain
-QualiChain Ontology: Smart Qualification on the BlockChains
+QualiChain Ontology for representing Smart Qualification on the BlockChains
