@@ -1,0 +1,111 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix saro: <http://w3id.org/saro#> .
+@prefix badge: <https://w3id.org/openbadges/v2> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ethon: <http://ethon.consensys.net/> .
+@prefix qc: <http://w3id.org/qualichain#> .
+@prefix schema: <http://schema.org/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cv: <http://rdfs.org/resume-rdf/cv.rdfs#> .
+
+
+
+#To be reused
+
+#saro:demand
+#saro: sector
+#saro: hasSkillGap
+#saro: fillhasSkillGap 
+#saro:JobPosting
+#saro:Curriculum
+#saro:TrainingResource (....courses)
+
+#cv:CV
+#cv:Person
+#cv:aboutPerson
+#cv:CV_Entry and all subclasses
+#cv:Skill and all subclasses, and linked relationship to saro:Skill
+
+qc:Person a owl:Class ;
+    rdfs:label "User" ;
+    rdfs:comment "A Person with accomplishments that can be verified on the blockchain." ;
+    rdfs:subClassOf saro:User , cv:Person .
+
+qc:Accomplishment a owl:Class ;
+	rdfs:label "Accomplishment" ;
+    rdfs:comment "Verifiable accomplishments of a Person." .
+	
+qc:hasResume a rdf:Property ;
+	rdfs:label "hasResume" ;
+    rdfs:comment "Links a person to a resume describing their accomplishments ." ;
+    rdfs:domain qc:User ;
+	owl:inverseOf cv:aboutPerson ;
+    rdfs:range cv:cv .
+
+qc:AwardingBody
+    rdf:type owl:Class;
+    rdfs:label "Awarding Body" ;
+    rdfs:comment "The Educator or Trainer acting as an awarding body for an accomplishment" ;
+    rdfs:subClassOf saro:EducatororTrainer ;
+    schema:identifier qc:Profile .
+
+qc:CertificationAuthority
+    rdf:type owl:Class;
+    rdfs:label "Certification Authority" ;
+    rdfs:comment "An entity with the authority to certify the validity of accomplishments" .
+    
+qc:awardedBy a rdf:Property ;
+    rdfs:label "awardedBy" ;
+    rdfs:comment "This property is used to link an accomplishment to the body (educator, trainer) awarding it." ;
+    rdfs:domain qc:Accomplishment ;
+    rdfs:range qc:AwardingBody .
+
+qc:certifiedBy a rdf:Property ;
+    rdfs:label "certifiedBy" ;
+    rdfs:comment "This property is used to link an accomplishment to the authority that certified its validity." ;
+    rdfs:domain qc:Accomplishment ;
+    rdfs:range qc:CertificationAuthority .
+
+qc:refersToAccomplishment
+	rdfs:label "refersToAccomplishment" ;
+    rdfs:comment "An entry in a personal Resume refers to a known skill." ;
+    rdfs:domain cv:CV_Entry ;
+    rdfs:range qc:Accomplishment .
+
+qc:verifiedBy a rdf:Property ;
+    rdfs:label "verifiedby" ;
+    rdfs:comment "To verify the authenticity of an individual identity, their accomplishments and the award of qualifications" ;
+    rdfs:domain qc:Accomplishment ;
+    rdfs:range qc:VerificationObject .
+	
+qc:VerificationObject
+    rdf:type owl:Class ;
+    rdfs:label "QualiChain Verification Object" ;
+    rdfs:comment "an object containing QualiChain verification details." ;
+    rdfs:subClassOf badge:VerificationObject .
+
+qc:Profile 
+    rdf:type owl:Class ;
+    rdfs:label "QualiChain Badge Profile" ;
+    rdfs:comment "Blockchain-backed Profile for OpenBadges" ;
+    rdfs:subClassOf badge:Profile .
+
+qc:blockchainProfileAccount a rdf:Property ;
+    rdfs:label "blockchainprofileaccount" ;
+    rdfs:comment "relating QualiChain Profiles to blockchain accounts" ;
+    rdfs:domain qc:Profile ;
+    rdfs:range ethon:ExternalAccount .
+
+qc:blockchainContractAccount a rdf:Property ;
+    rdfs:label "blockchaincontractaccount" ;
+    rdfs:comment "relating QualiChain entities to blockchain contract accounts" ;
+    rdfs:domain qc:VerificationObject ;
+    rdfs:range ethon:ContractAccount .
+
+
+
+
+
