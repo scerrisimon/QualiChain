@@ -46,7 +46,7 @@ qc:Experience a owl:Class ;
 qc:hasAccomplishment a rdf:Property ;
     rdfs:label "has Accomplishment" ;
     rdfs:comment "This property is used to link a person to their verifiable accomplishments (experiences, skills, qualifications, awards)." ;
-    rdfs:domain qc:pPrson ;
+    rdfs:domain qc:Person ;
     rdfs:range qc:Accomplishment .
 
 #extend link qualifciation/accomplishment to certificates/awardingBodies
