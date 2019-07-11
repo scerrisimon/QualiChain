@@ -12,7 +12,6 @@
 @prefix cv: <http://rdfs.org/resume-rdf/cv.rdfs#> .
 
 
-
 #To be reused
 
 #saro:demand
@@ -22,6 +21,8 @@
 #saro:JobPosting
 #saro:Curriculum
 #saro:TrainingResource (....courses)
+
+
 
 #cv:CV
 #cv:Person
@@ -38,6 +39,10 @@ qc:Accomplishment a owl:Class ;
 	rdfs:label "Accomplishment" ;
     rdfs:comment "Verifiable accomplishments of a Person." .
 	
+#extend SARO knowledge to something that can be linked to certificates/awardingBodies
+#saro:Knowledge requiresWorkExprience cv:workhistory
+
+	
 qc:hasResume a rdf:Property ;
 	rdfs:label "hasResume" ;
     rdfs:comment "Links a person to a resume describing their accomplishments ." ;
@@ -51,6 +56,10 @@ qc:AwardingBody
     rdfs:comment "The Educator or Trainer acting as an awarding body for an accomplishment" ;
     rdfs:subClassOf saro:EducatororTrainer ;
     schema:identifier qc:Profile .
+	
+
+	
+#cv:course coveredBy saro:Curriculum 
 
 qc:CertificationAuthority
     rdf:type owl:Class;
@@ -83,25 +92,35 @@ qc:verifiedBy a rdf:Property ;
 	
 qc:VerificationObject
     rdf:type owl:Class ;
-    rdfs:label "QualiChain Verification Object" ;
-    rdfs:comment "an object containing QualiChain verification details." ;
+    rdfs:label "Verification Object" ;
+    rdfs:comment "An object containing Verification details." ;
     rdfs:subClassOf badge:VerificationObject .
 
 qc:Profile 
     rdf:type owl:Class ;
-    rdfs:label "QualiChain Badge Profile" ;
+    rdfs:label "Badge Profile" ;
     rdfs:comment "Blockchain-backed Profile for OpenBadges" ;
     rdfs:subClassOf badge:Profile .
+	
+#Link Profile to CV vocab 
+#qc:Profile 
+    #rdf:type owl:Class ;
+    #rdfs:label "Badge Profile" ;
+    #rdfs:comment "Blockchain-backed Profile for OpenBadges" ;
+    #rdfs:subClassOf badge:Profile .
+	
+
+
 
 qc:blockchainProfileAccount a rdf:Property ;
     rdfs:label "blockchainprofileaccount" ;
-    rdfs:comment "relating QualiChain Profiles to blockchain accounts" ;
+    rdfs:comment "relating profiles to blockchain accounts" ;
     rdfs:domain qc:Profile ;
     rdfs:range ethon:ExternalAccount .
 
 qc:blockchainContractAccount a rdf:Property ;
     rdfs:label "blockchaincontractaccount" ;
-    rdfs:comment "relating QualiChain entities to blockchain contract accounts" ;
+    rdfs:comment "relating entities to blockchain contract accounts" ;
     rdfs:domain qc:VerificationObject ;
     rdfs:range ethon:ContractAccount .
 
