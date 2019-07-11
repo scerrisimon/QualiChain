@@ -31,7 +31,7 @@
 #cv:Skill and all subclasses, and linked relationship to saro:Skill
 
 qc:Person a owl:Class ;
-    rdfs:label "User" ;
+    rdfs:label "Person" ;
     rdfs:comment "A Person with accomplishments that can be verified on the blockchain." ;
     rdfs:subClassOf saro:User , cv:Person .
 
@@ -40,13 +40,13 @@ qc:Accomplishment a owl:Class ;
     rdfs:comment "Verifiable accomplishments of a Person." .
 	
 #extend SARO knowledge to something that can be linked to certificates/awardingBodies
-#saro:Knowledge requiresWorkExprience cv:workhistory
+#cv:workhistory requiresWorkExprience  saro:Knowledge 
 
 	
 qc:hasResume a rdf:Property ;
 	rdfs:label "hasResume" ;
     rdfs:comment "Links a person to a resume describing their accomplishments ." ;
-    rdfs:domain qc:User ;
+    rdfs:domain qc:Person ;
 	owl:inverseOf cv:aboutPerson ;
     rdfs:range cv:cv .
 
