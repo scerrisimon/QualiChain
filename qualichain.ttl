@@ -43,17 +43,6 @@ qc:Experience a owl:Class ;
     rdfs:comment "An accomplishment that does not consist of a qualification but of a veriafable work experience." ;
     rdfs:subClassOf qc:Accomplishment .
 
-qc:hasAccomplishment a rdf:Property ;
-    rdfs:label "has Accomplishment" ;
-    rdfs:comment "This property is used to link a person to their verifiable accomplishments (experiences, skills, qualifications, awards)." ;
-    rdfs:domain qc:Person ;
-    rdfs:range qc:Accomplishment .
-
-#extend link qualifciation/accomplishment to certificates/awardingBodies
-#linkcv:workhistory requiresWorkExprience  
-
-	
-
 
 qc:AwardingBody
     rdf:type owl:Class;
@@ -61,18 +50,19 @@ qc:AwardingBody
     rdfs:comment "The Educator or Trainer acting as an awarding body for an accomplishment" ;
     rdfs:subClassOf saro:EducatororTrainer ;
     schema:identifier qc:Profile .
-	
 
-	
-#cv:course coveredBy saro:Curriculum 
+qc:hasAccomplishment a rdf:Property ;
+    rdfs:label "has Accomplishment" ;
+    rdfs:comment "This property is used to link a person to their verifiable accomplishments (experiences, skills, qualifications, awards)." ;
+    rdfs:domain qc:Person ;
+    rdfs:range qc:Accomplishment .
+
 
 qc:CertificationAuthority
     rdf:type owl:Class;
     rdfs:label "Certification Authority" ;
     rdfs:comment "An entity with the authority to certify the validity of accomplishments" .
-
-#link certificationauthority to certificate/qualification
-    
+  
 qc:awardedBy a rdf:Property ;
     rdfs:label "awardedBy" ;
     rdfs:comment "This property is used to link an accomplishment to the body (educator, trainer) awarding it." ;
@@ -99,29 +89,25 @@ qc:VerificationObject
 
 qc:Profile 
     rdf:type owl:Class ;
-    rdfs:label "Badge Profile" ;
+    rdfs:label "Profile" ;
     rdfs:comment "Blockchain-backed Profile for OpenBadges" ;
     rdfs:subClassOf badge:Profile .
+
+qc:hasProfile  a rdf:Property ;
+    rdfs:label "has Profile" ;
+    rdfs:comment "Links entities (as recipients of Badges) or organisations (as Badge Issuer) to an OpenBadges Profile" ;
+    rdfs:domain qc:User , qc:Awarding Body ;
+    rdfs:range qc:Profile .
 	
-#Link Profile to CV vocab 
-#qc:Profile 
-    #rdf:type owl:Class ;
-    #rdfs:label "Badge Profile" ;
-    #rdfs:comment "Blockchain-backed Profile for OpenBadges" ;
-    #rdfs:subClassOf badge:Profile .
-	
-
-
-
 qc:blockchainProfileAccount a rdf:Property ;
-    rdfs:label "blockchainprofileaccount" ;
-    rdfs:comment "relating profiles to blockchain accounts" ;
+    rdfs:label "blockchain Profile Account" ;
+    rdfs:comment "Links profiles to blockchain accounts" ;
     rdfs:domain qc:Profile ;
     rdfs:range ethon:ExternalAccount .
 
 qc:blockchainContractAccount a rdf:Property ;
-    rdfs:label "blockchaincontractaccount" ;
-    rdfs:comment "relating entities to blockchain contract accounts" ;
+    rdfs:label "blockchain Contract Account" ;
+    rdfs:comment "Linkes entities to blockchain contract accounts" ;
     rdfs:domain qc:VerificationObject ;
     rdfs:range ethon:ContractAccount .
 
@@ -159,5 +145,13 @@ qc:refersToQualification  a rdf:Property ;
   rdfs:domain cv:Course , cv:Education, cv:Skill ;
   rdfs:range qc:Qualification .
 
+#Link Profile to CV vocab 
+#qc:Profile 
+    #rdf:type owl:Class ;
+    #rdfs:label "Badge Profile" ;
+    #rdfs:comment "Blockchain-backed Profile for OpenBadges" ;
+    #rdfs:subClassOf badge:Profile .
+
+#cv:course coveredBy saro:Curriculum 
 
 
