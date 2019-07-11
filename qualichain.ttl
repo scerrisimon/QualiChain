@@ -96,7 +96,7 @@ qc:Profile
 qc:hasProfile  a rdf:Property ;
     rdfs:label "has Profile" ;
     rdfs:comment "Links entities (as recipients of Badges) or organisations (as Badge Issuer) to an OpenBadges Profile" ;
-    rdfs:domain qc:User , qc:AwardingBody ;
+    rdfs:domain qc:Person , qc:AwardingBody ;
     rdfs:range qc:Profile .
 	
 qc:blockchainProfileAccount a rdf:Property ;
