@@ -137,7 +137,7 @@ qc:refersToAccomplishment a rdf:Property ;
   rdfs:label "refers To Accomplishment" ;
   rdfs:comment "Links a Resume to verifiable accomplishments ." ;
   rdfs:domain cv:CV_Entry ;
-  rdfs:range qc:Accomplihsment .
+  rdfs:range qc:Accomplishment .
 
 qc:refersToExperience  a rdf:Property ;
   rdfs:subPropertyOf qc:refersToAccomplishment ;
@@ -149,7 +149,7 @@ qc:refersToExperience  a rdf:Property ;
 qc:refersToQualification  a rdf:Property ;
   rdfs:subPropertyOf qc:refersToAccomplishment ;
   rdfs:label "refers to Qualification" ;
-  rdfs:comment "Links a CV Qualifc entry to a verifiable qualification." ;
+  rdfs:comment "Links a CV entry (Course, Education or Skill) to a verifiable qualification." ;
   rdfs:domain cv:Course , cv:Education, cv:Skill ;
   rdfs:range qc:Qualification .
 
