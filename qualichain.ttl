@@ -43,6 +43,12 @@ qc:Experience a owl:Class ;
     rdfs:comment "An accomplishment that does not consist of a qualification but of a veriafable work experience." ;
     rdfs:subClassOf qc:Accomplishment .
 
+qc:hasAccomplishment a rdf:Property ;
+    rdfs:label "has Accomplishment" ;
+    rdfs:comment "This property is used to link a person to their verifiable accomplishments (experiences, skills, qualifications, awards)." ;
+    rdfs:domain qc:pPrson ;
+    rdfs:range qc:Accomplishment .
+
 #extend link qualifciation/accomplishment to certificates/awardingBodies
 #linkcv:workhistory requiresWorkExprience  
 
@@ -131,7 +137,7 @@ qc:hasResume a rdf:Property ;
     rdfs:comment "Links a person to a resume describing their accomplishments ." ;
     rdfs:domain qc:Person ;
 	owl:inverseOf cv:aboutPerson ;
-    rdfs:range cv:cv .
+    rdfs:range cv:CV .
 
 qc:refersToAccomplishment a rdf:Property ;
   rdfs:label "refers To Accomplishment" ;
