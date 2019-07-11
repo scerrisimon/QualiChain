@@ -21,14 +21,12 @@
 #saro:JobPosting
 #saro:Curriculum
 #saro:TrainingResource (....courses)
+#saro:Qualification (certificate)
 
 
 
-#cv:CV
-#cv:Person
-#cv:aboutPerson
-#cv:CV_Entry and all subclasses
-#cv:Skill and all subclasses, and linked relationship to saro:Skill
+ .
+
 
 qc:Person a owl:Class ;
     rdfs:label "Person" ;
@@ -36,19 +34,24 @@ qc:Person a owl:Class ;
     rdfs:subClassOf saro:User , cv:Person .
 
 qc:Accomplishment a owl:Class ;
-	rdfs:label "Accomplishment" ;
+    rdfs:label "Accomplishment" ;
     rdfs:comment "Verifiable accomplishments of a Person." .
-	
-#extend SARO knowledge to something that can be linked to certificates/awardingBodies
-#cv:workhistory requiresWorkExprience  saro:Knowledge 
+
+qc:Qualification a owl:Class ;
+    rdfs:label "Qualification" ;
+    rdfs:comment "Extends the SARO Qualification class, which represents the official or formal certification of one or more acquired skills or competences." ;
+    rdfs:subClassOf saro:Qualification, qc:Accomplishment .
+
+qc:Experience a owl:Class ;
+    rdfs:label "Experience" ;
+    rdfs:comment "An accomplishment that does not consist of a qualification but of a veriafable work experience." ;
+    rdfs:subClassOf qc:Accomplishment .
+
+#extend link qualifciation/accomplishment to certificates/awardingBodies
+#linkcv:workhistory requiresWorkExprience  
 
 	
-qc:hasResume a rdf:Property ;
-	rdfs:label "hasResume" ;
-    rdfs:comment "Links a person to a resume describing their accomplishments ." ;
-    rdfs:domain qc:Person ;
-	owl:inverseOf cv:aboutPerson ;
-    rdfs:range cv:cv .
+
 
 qc:AwardingBody
     rdf:type owl:Class;
@@ -65,6 +68,8 @@ qc:CertificationAuthority
     rdf:type owl:Class;
     rdfs:label "Certification Authority" ;
     rdfs:comment "An entity with the authority to certify the validity of accomplishments" .
+
+#link certificationauthority to certificate/qualification
     
 qc:awardedBy a rdf:Property ;
     rdfs:label "awardedBy" ;
@@ -124,7 +129,39 @@ qc:blockchainContractAccount a rdf:Property ;
     rdfs:domain qc:VerificationObject ;
     rdfs:range ethon:ContractAccount .
 
+#Resume descriptive elements. Note: elements from a Resume should always point to other elements described here or in other vocabularies and never the other way around. For example, it does not make sense to link an actual Work Experience to a CV owned by someone describing it. Instead, the CV description can point to the work experience, in that direction.
+#cv:CV
+#cv:Person
+#cv:aboutPerson
+#cv:CV_Entry and all subclasses
+#cv:Skill and all subclasses, and linked relationship to saro:Skill
 
+qc:hasResume a rdf:Property ;
+	rdfs:label "has Resume" ;
+    rdfs:comment "Links a person to a resume describing their accomplishments ." ;
+    rdfs:domain qc:Person ;
+	owl:inverseOf cv:aboutPerson ;
+    rdfs:range cv:cv .
+
+qc:refersToAccomplishment a rdf:Property ;
+  rdfs:label "refers To Accomplishment" ;
+  rdfs:comment "Links a Resume to verifiable accomplishments ." ;
+  rdfs:domain cv:cv ;
+  rdfs:range qc:Accomplihsment .
+
+qc:refersToExperience  a rdf:Property ;
+  rdfs:subPropertyOf qc:refersToAccomplishment ;
+  rdfs:label "refers to Experience" ;
+  rdfs:comment "Links a CV Work History entry to a verifiable work experience." ;
+  rdfs:domain cv:WorkHistory ;
+  rdfs:range qc:Experience .
+
+qc:refersToQualification  a rdf:Property ;
+  rdfs:subPropertyOf qc:refersToAccomplishment ;
+  rdfs:label "refers to Qualification" ;
+  rdfs:comment "Links a CV Qualifc entry to a verifiable qualification." ;
+  rdfs:domain cv:Course ;
+  rdfs:range qc:Qualification .
 
 
 
