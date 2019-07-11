@@ -83,12 +83,6 @@ qc:certifiedBy a rdf:Property ;
     rdfs:domain qc:Accomplishment ;
     rdfs:range qc:CertificationAuthority .
 
-qc:refersToAccomplishment
-	rdfs:label "refersToAccomplishment" ;
-    rdfs:comment "An entry in a personal Resume refers to a known skill." ;
-    rdfs:domain cv:CV_Entry ;
-    rdfs:range qc:Accomplishment .
-
 qc:verifiedBy a rdf:Property ;
     rdfs:label "verifiedby" ;
     rdfs:comment "To verify the authenticity of an individual identity, their accomplishments and the award of qualifications" ;
@@ -146,7 +140,7 @@ qc:hasResume a rdf:Property ;
 qc:refersToAccomplishment a rdf:Property ;
   rdfs:label "refers To Accomplishment" ;
   rdfs:comment "Links a Resume to verifiable accomplishments ." ;
-  rdfs:domain cv:cv ;
+  rdfs:domain cv:CV_Entry ;
   rdfs:range qc:Accomplihsment .
 
 qc:refersToExperience  a rdf:Property ;
@@ -160,7 +154,7 @@ qc:refersToQualification  a rdf:Property ;
   rdfs:subPropertyOf qc:refersToAccomplishment ;
   rdfs:label "refers to Qualification" ;
   rdfs:comment "Links a CV Qualifc entry to a verifiable qualification." ;
-  rdfs:domain cv:Course ;
+  rdfs:domain cv:Course , cv:Education, cv:Skill ;
   rdfs:range qc:Qualification .
 
 
