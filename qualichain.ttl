@@ -24,10 +24,6 @@
 #saro:Qualification (certificate)
 
 
-
- .
-
-
 qc:Person a owl:Class ;
     rdfs:label "Person" ;
     rdfs:comment "A Person with accomplishments that can be verified on the blockchain." ;
