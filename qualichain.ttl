@@ -11,7 +11,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix cv: <http://rdfs.org/resume-rdf/cv.rdfs#> .
 
-
+<http://w3id.org/qualichain> a owl:Ontology ;
+              dc:title "QualiChain ontology"@en.
 #To be reused
 
 #saro:demand
