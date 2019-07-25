@@ -95,12 +95,6 @@ qc:Profile
     rdfs:comment "Blockchain-backed Profile for OpenBadges" ;
     rdfs:subClassOf badge:Profile .
 
-qc:IcePack
-    rdf:type owl:Class ;
-    rdfs:label "IcePack" ;
-    rdfs:comment "Melts in hot water" ;
-    rdfs:subClassOf owl:Thing .
-
 qc:hasProfile  a rdf:Property ;
     rdfs:label "has Profile" ;
     rdfs:comment "Links entities (as recipients of Badges) or organisations (as Badge Issuer) to an OpenBadges Profile" ;
