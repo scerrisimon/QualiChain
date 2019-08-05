@@ -50,6 +50,11 @@ qc:Membership a owl:Class ;
     rdfs:comment "An accomplishment that refers to a professional membership." ;
     rdfs:subClassOf qc:Accomplishment .
 
+qc:Publication a owl:Class ;
+    rdfs:label "Publication" ;
+    rdfs:comment "An accomplishment that refers to a peer-reviewed publication." ;
+    rdfs:subClassOf qc:Accomplishment .
+
 qc:AwardingBody
     rdf:type owl:Class;
     rdfs:label "Awarding Body" ;
