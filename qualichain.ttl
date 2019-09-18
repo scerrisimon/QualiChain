@@ -38,7 +38,7 @@ qc:Accomplishment a owl:Class ;
 qc:Qualification a owl:Class ;
     rdfs:label "Qualification" ;
     rdfs:comment "Extends the SARO Qualification class, which represents the official or formal certification of one or more acquired skills or competences." ;
-    rdfs:subClassOf saro:Qualification, qc:Accomplishment .
+    rdfs:subClassOf saro:Qualification, qc:Accomplishment, schema:EducationalOccupationalCredential .
 
 qc:Experience a owl:Class ;
     rdfs:label "Experience" ;
@@ -68,7 +68,17 @@ qc:hasAccomplishment a rdf:Property ;
     rdfs:domain qc:Person ;
     rdfs:range qc:Accomplishment .
 
+qc:field a rdf:Property ;
+    rdfs:label "field" ;
+    rdfs:comment "Field or competence area in which a qualification is awarded" ;
+    rdfs:domain qc:Qualification ;
+    rdfs:range qc:CompetenceArea .
 
+qc:CompetenceArea
+    rdf:type owl:Class;
+    rdfs:label "CompetenceArea" ;
+    rdfs:comment "A competence area, field of study or domain of expertise" .
+  
 qc:CertificationAuthority
     rdf:type owl:Class;
     rdfs:label "Certification Authority" ;
