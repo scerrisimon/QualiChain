@@ -69,7 +69,7 @@ qc:hasAccomplishment a rdf:Property ;
     rdfs:range qc:Accomplishment .
 
 qc:sector a rdf:Property ;
-    rdfs:label "competenceArea" ;
+    rdfs:label "sector" ;
     rdfs:comment "Sector, field or competence area in which a qualification is awarded." ;
     rdfs:domain qc:Qualification ;
     rdfs:range saro:Sector.
