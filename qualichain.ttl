@@ -74,12 +74,19 @@ qc:sector a rdf:Property ;
     rdfs:domain qc:Qualification ;
     rdfs:range saro:Sector.
 
+qc:requiresQualification a rdf:Property ;
+    rdfs:label "requires Qualification" ;
+    rdfs:domain saro:JobRoleOrType ;
+    rdfs:range qc:Qualification ;
+    rdfs:comment "Links a SARO Job Role/Type (in a Job Post) to a Qualichain-defined Qualification." .
+    
 qc:requiresExperience a rdf:Property ;
     rdfs:label "requires Experience" ;
     rdfs:domain saro:JobRoleOrType ;
     rdfs:range qc:Experience ;
     rdfs:comment "Links a SARO Job Role/Type (in a Job Post) to a Qualichain-defined Experience." .
-    
+
+
 qc:experienceDuration a rdf:Property ;
     rdfs:label "experience Duration" ;
     rdfs:domain qc:Experience ;
