@@ -101,12 +101,16 @@ qc:experienceDuration a rdf:Property ;
 
 qc:minExperienceDuration a rdf:Property ;
 	rdfs:subPropertyOf qc:experienceDuration ;
+	rdfs:domain qc:Experience ;
+    rdfs:range xsd:duration ;
     rdfs:label "minimum Experience Duration" ;
     rdfs:comment "Minimum duration of the experience acquired or required." .
 
 qc:maxExperienceDuration a rdf:Property ;
     rdfs:subPropertyOf qc:experienceDuration ;
-    rdfs:label "maximum Experience Duration" ;
+    rdfs:domain qc:Experience ;
+    rdfs:range xsd:duration ;
+	rdfs:label "maximum Experience Duration" ;
     rdfs:comment "Duration of the experience acquired or required." .
 
 qc:CertificationAuthority
