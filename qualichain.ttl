@@ -19,6 +19,7 @@
 
 #saro:demand
 #saro: sector
+#saro:Skill
 #saro: hasSkillGap
 #saro: fillhasSkillGap 
 #saro:JobPosting
