@@ -4,7 +4,6 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix saro: <http://w3id.org/saro#> .
 @prefix badge: <https://w3id.org/openbadges/v2#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ethon: <http://ethon.consensys.net/> .
 @prefix qc: <http://w3id.org/qualichain#> .
 @prefix schema: <http://schema.org/> .
