@@ -209,3 +209,9 @@ qc:refersToQualification  a rdf:Property ;
     #rdfs:subClassOf badge:Profile .
 
 #cv:course coveredBy saro:Curriculum
+
+qc:sector a rdf:Property ;
+  rdfs:label "sector" ;
+  rdfs:comment "Links an accomplishment to a specific sector ." ;
+  rdfs:domain qc:Accomplishment ;
+  rdfs:range saro:Sector .
