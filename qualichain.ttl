@@ -125,11 +125,17 @@ qc:awardedBy a rdf:Property ;
     rdfs:domain qc:Accomplishment ;
     rdfs:range qc:AwardingBody .
 
+qc:awardedOn a rdf:Property ;
+    rdfs:label "awardedBy" ;
+    rdfs:comment "This property is used to define the date the accomplishment was achieved." ;
+    rdfs:domain qc:Accomplishment ;
+    rdfs:range qc:AwardingBody .
+
 qc:certifiedBy a rdf:Property ;
     rdfs:label "certifiedBy" ;
     rdfs:comment "This property is used to link an accomplishment to the authority that certified its validity." ;
     rdfs:domain qc:Accomplishment ;
-    rdfs:range qc:CertificationAuthority .
+    rdfs:range xsd:gYear .
 
 qc:verifiedBy a rdf:Property ;
     rdfs:label "verifiedby" ;
