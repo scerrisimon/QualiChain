@@ -100,6 +100,18 @@ qc:experienceDuration a rdf:Property ;
     rdfs:range xsd:duration ;
     rdfs:comment "Duration of the experience acquired or required." .
 
+qc:experienceStart a rdf:Property ;
+    rdfs:label "experience Start" ;
+    rdfs:domain qc:Experience ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "Date when the experience started." .
+
+qc:experienceEnd a rdf:Property ;
+    rdfs:label "experience End" ;
+    rdfs:domain qc:Experience ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "Date when the experience ended." .
+
 qc:minExperienceDuration a rdf:Property ;
 	rdfs:subPropertyOf qc:experienceDuration ;
 	rdfs:domain qc:Experience ;
