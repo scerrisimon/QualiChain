@@ -43,7 +43,7 @@ qc:Qualification a owl:Class ;
 
 qc:Experience a owl:Class ;
     rdfs:label "Experience" ;
-    rdfs:comment "An accomplishment that does not consist of a qualification but of a veriafable work experience." ;
+    rdfs:comment "An accomplishment that does not consist of a qualification but of a verifiable work experience." ;
     rdfs:subClassOf qc:Accomplishment .
 
 qc:Membership a owl:Class ;
